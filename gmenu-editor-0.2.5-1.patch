@@ -1,0 +1,184 @@
+diff -urN -x .build -x .inst -x .sinst -x configure -x Makefile.in -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x 'intltool*' -x autom4te.cache -x '*compile' -x '*stamp' -x '*html' -x '*sgml' -x '*tmpl' -x '*txt' -x '*xml' gmenu-editor-orig/CYGWIN-PATCHES/README gmenu-editor/CYGWIN-PATCHES/README
+--- gmenu-editor-orig/CYGWIN-PATCHES/README	1969-12-31 18:00:00.000000000 -0600
++++ gmenu-editor/CYGWIN-PATCHES/README	2005-11-18 13:26:40.515625000 -0600
+@@ -0,0 +1,87 @@
++gmenu-editor
++------------------------------------------
++A GTK2 program for editing application menu .desktop files.
++
++Runtime requirements:
++  cygwin-1.5.18-1
++  atk-runtime-1.9.1-1
++  expat-1.95.8-1
++  glib2-runtime-2.6.5-1
++  gtk2-x11-runtime-2.6.8-1
++  libXft2-2.1.6-1
++  libfontconfig1-2.2.2-1
++  libfreetype26-2.1.9-1
++  libiconv2-1.9.2-1
++  libintl3-0.14.1-1
++  pango-runtime-1.8.1-1
++  xorg-x11-bin-dlls-6.8.2.0-1
++  zlib-1.2.3-1
++
++Build requirements:
++  cygwin-1.5.18-1
++  autoconf2.5-2.59-3
++  automake1.9-1.9.6-1
++  binutils-20050610-1
++  gawk-3.1.5-1
++  gcc-core-3.4.4-1
++  libtool1.5-1.5.20-1
++  make-3.80-1
++  sed-4.1.4-1
++
++  atk-devel-1.9.1-1
++  expat-1.95.8-1
++  gettext-0.14.1-1
++  glib2-devel-2.6.5-1
++  gtk2-x11-devel-2.6.8-1
++  libXft-devel-2.1.6-1
++  libfontconfig-devel-2.2.2-1
++  libfreetype2-devel-2.1.9-1
++  libiconv-1.9.2-1
++  pango-devel-1.8.1-1
++  xorg-x11-devel-6.8.2.0-1
++  zlib-1.2.3-1
++
++Canonical website:
++  http://ghost.pl/index.php?ID=324
++
++Canonical download:
++  http://ghost.pl/index.php?ID=329
++
++-------------------------------------------
++
++Build instructions:
++  unpack gmenu-editor-0.2.5-X-src.tar.bz2
++    if you use setup to install this src package, it will be
++	 unpacked under /usr/src automatically
++  cd /usr/src
++  ./gmenu-editor-0.2.5-X.sh all
++
++This will create:
++  /usr/src/gmenu-editor-0.2.5-X-src.tar.bz2
++  /usr/src/gmenu-editor-0.2.5-X.tar.bz2
++
++-------------------------------------------
++
++Files included in the binary package:
++
++  /usr/bin/gmenu-editor.exe
++  /usr/share/doc/Cygwin/gmenu-editor-0.2.5.README
++  /usr/share/doc/gmenu-editor-0.2.5/ABOUT-NLS
++  /usr/share/doc/gmenu-editor-0.2.5/AUTHORS
++  /usr/share/doc/gmenu-editor-0.2.5/ChangeLog
++  /usr/share/doc/gmenu-editor-0.2.5/COPYING
++  /usr/share/doc/gmenu-editor-0.2.5/INSTALL
++  /usr/share/doc/gmenu-editor-0.2.5/NEWS
++  /usr/share/doc/gmenu-editor-0.2.5/README
++  /usr/share/doc/gmenu-editor-0.2.5/TODO
++
++------------------
++
++Port Notes:
++
++----- version 0.2.5-1 -----
++Initial release for Cygwin.
++
++
++Cygwin port maintained by:
++http://cygwinports.dotsrc.org/
+diff -urN -x .build -x .inst -x .sinst -x configure -x Makefile.in -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x 'intltool*' -x autom4te.cache -x '*compile' -x '*stamp' -x '*html' -x '*sgml' -x '*tmpl' -x '*txt' -x '*xml' gmenu-editor-orig/CYGWIN-PATCHES/setup.hint gmenu-editor/CYGWIN-PATCHES/setup.hint
+--- gmenu-editor-orig/CYGWIN-PATCHES/setup.hint	1969-12-31 18:00:00.000000000 -0600
++++ gmenu-editor/CYGWIN-PATCHES/setup.hint	2005-11-18 13:26:40.515625000 -0600
+@@ -0,0 +1,4 @@
++category: Gnome X11
++requires: cygwin gtk2-x11-runtime
++sdesc: "A GTK2 program for editing application menu .desktop files."
++ldesc: "A GTK2 program for editing application menu .desktop files."
+diff -urN -x .build -x .inst -x .sinst -x configure -x Makefile.in -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x 'intltool*' -x autom4te.cache -x '*compile' -x '*stamp' -x '*html' -x '*sgml' -x '*tmpl' -x '*txt' -x '*xml' gmenu-editor-orig/Makefile.am gmenu-editor/Makefile.am
+--- gmenu-editor-orig/Makefile.am	2005-07-06 13:04:32.000000000 -0500
++++ gmenu-editor/Makefile.am	2005-11-18 13:00:03.187500000 -0600
+@@ -5,7 +5,7 @@
+ 
+ SUBDIRS = intl po src
+ 
+-gmenu_editordocdir = ${prefix}/doc/gmenu-editor
++gmenu_editordocdir = $(datadir)/doc/gmenu-editor-$(VERSION)
+ gmenu_editordoc_DATA = \
+ 	README\
+ 	COPYING\
+diff -urN -x .build -x .inst -x .sinst -x configure -x Makefile.in -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x 'intltool*' -x autom4te.cache -x '*compile' -x '*stamp' -x '*html' -x '*sgml' -x '*tmpl' -x '*txt' -x '*xml' gmenu-editor-orig/configure.in gmenu-editor/configure.in
+--- gmenu-editor-orig/configure.in	2005-07-03 16:02:48.000000000 -0500
++++ gmenu-editor/configure.in	2005-11-18 13:00:10.359375000 -0600
+@@ -4,7 +4,7 @@
+ dnl 	Please disable it in the Anjuta project configuration
+ 
+ AC_INIT(configure.in)
+-AM_INIT_AUTOMAKE(gnome-menu-editor, 0.1)
++AM_INIT_AUTOMAKE(gnome-menu-editor, 0.2.5)
+ AM_CONFIG_HEADER(config.h)
+ 
+ AC_ISC_POSIX
+@@ -13,7 +13,7 @@
+ AC_PROG_CC
+ AM_PROG_CC_STDC
+ AC_HEADER_STDC
+-AM_PROG_LIBTOOL
++dnl AM_PROG_LIBTOOL
+ PKG_CHECK_MODULES(GTK, gtk+-2.0 gdk-2.0,,exit)
+ AC_SUBST(GTK_LIBS)
+ AC_SUBST(GTK_CFLAGS)
+@@ -31,7 +31,7 @@
+ dnl Languages which your application supports
+ ALL_LINGUAS=""
+ AM_GNU_GETTEXT
+-AM_GNU_GETTEXT_VERSION(0.10.40)
++dnl AM_GNU_GETTEXT_VERSION(0.10.40)
+ 
+ dnl Set PACKAGE_LOCALE_DIR in config.h.
+ if test "x${prefix}" = "xNONE"; then
+@@ -53,7 +53,7 @@
+ 
+ dnl Set PACKAGE DATA & DOC DIR
+ packagedatadir=share
+-packagedocdir=doc/${PACKAGE}
++packagedocdir=doc/${PACKAGE}-${VERSION}
+ 
+ dnl Set PACKAGE DIRS in config.h.
+ packagepixmapsdir=${packagedatadir}/pixmaps
+diff -urN -x .build -x .inst -x .sinst -x configure -x Makefile.in -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x 'intltool*' -x autom4te.cache -x '*compile' -x '*stamp' -x '*html' -x '*sgml' -x '*tmpl' -x '*txt' -x '*xml' gmenu-editor-orig/po/Makefile.in.in gmenu-editor/po/Makefile.in.in
+--- gmenu-editor-orig/po/Makefile.in.in	2005-07-03 16:02:50.000000000 -0500
++++ gmenu-editor/po/Makefile.in.in	2005-11-18 13:21:02.015625000 -0600
+@@ -28,7 +28,7 @@
+ 
+ INSTALL = @INSTALL@
+ INSTALL_DATA = @INSTALL_DATA@
+-MKINSTALLDIRS = @MKINSTALLDIRS@
++MKINSTALLDIRS = @install_sh@ -d
+ mkinstalldirs = $(SHELL) `case "$(MKINSTALLDIRS)" in /*) echo "$(MKINSTALLDIRS)" ;; *) echo "$(top_builddir)/$(MKINSTALLDIRS)" ;; esac`
+ 
+ CC = @CC@
+diff -urN -x .build -x .inst -x .sinst -x configure -x Makefile.in -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x 'intltool*' -x autom4te.cache -x '*compile' -x '*stamp' -x '*html' -x '*sgml' -x '*tmpl' -x '*txt' -x '*xml' gmenu-editor-orig/src/Makefile.am gmenu-editor/src/Makefile.am
+--- gmenu-editor-orig/src/Makefile.am	2005-08-07 06:25:59.000000000 -0500
++++ gmenu-editor/src/Makefile.am	2005-11-18 12:58:59.140625000 -0600
+@@ -8,8 +8,7 @@
+ 	$(GTK_CFLAGS)
+ 
+ AM_CFLAGS =\
+-	 -Wall\
+-	 -g
++	 -Wall
+ 
+ bin_PROGRAMS = gmenu-editor
+ 
+@@ -22,7 +21,7 @@
+ 	mv_cp.h\
+ 	mv_cp.c\
+ 	dirFunc.h\
+-	dirFunc.c\	
++	dirFunc.c\
+ 	interface.h\
+ 	interface.c\
+ 	mainWindow.h\
