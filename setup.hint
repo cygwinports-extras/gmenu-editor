@@ -1,4 +1,4 @@
 category: Gnome X11
-requires: cygwin gtk2-x11-runtime
+requires: gtk2-x11-runtime
 sdesc: "A GTK2 program for editing application menu .desktop files."
 ldesc: "A GTK2 program for editing application menu .desktop files."
